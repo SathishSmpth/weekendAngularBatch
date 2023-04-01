@@ -1,0 +1,86 @@
+<div class="container mt-2">
+  <div class="card text-bg-dark p-4">
+    <div class="card-body">
+      <form class="row" [formGroup]="personalDetails">
+        <div class="mb-3 col-12 col-sm-12 col-md-6">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" formControlName="name" />
+          <div class="form-text" *ngIf="inValid">
+            <span *ngIf="personalDetails.controls['name']?.errors?.['required']"
+              >Name must be Required</span
+            >
+            <span *ngIf="personalDetails.controls['name']?.errors?.['pattern']"
+              >Invalid Name</span
+            >
+            <span
+              *ngIf="personalDetails.controls['name']?.errors?.['minLength']"
+              >Name must be have a minimum four Characters</span
+            >
+          </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-12 col-md-6">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="number" class="form-control" formControlName="phone" />
+           <div class="form-text" *ngIf="inValid" >
+            <span *ngIf="personalDetails.controls['phone']?.errors?.['required']">Phone must be Required</span>
+          </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-12 col-md-6">
+          <label for="phone" class="form-label">Gender</label>
+
+          <select class="form-select form-control" formControlName="gender">
+            <option selected disabled>-- Select Gender --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div class="form-text" *ngIf="inValid" >
+            <span *ngIf="personalDetails.controls['gender']?.errors?.['required']">Gender must be Required</span>
+          </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-12 col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" />
+          <div class="form-text" *ngIf="inValid" >
+            <span *ngIf="personalDetails.controls['email']?.errors?.['required']">Email must be Required</span>
+            <span *ngIf="personalDetails.controls['email']?.errors?.['email']">Enter valid Email</span>
+          </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-12 col-md-6">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+          />
+          <div class="form-text" *ngIf="inValid" >
+            <span *ngIf="personalDetails.controls['password']?.errors?.['required']">Password must be Required</span>
+            <span *ngIf="personalDetails.controls['password']?.errors?.['pattern']">
+              Password must be contains 8 character,one Upper Case, number and one special Character
+            </span>
+          </div>
+        </div>
+        <div class="mb-3 col-12 col-sm-12 col-md-6">
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="confirmPassword"
+            class="form-control"
+            formControlName="confirmPassword"
+          />
+          <div class="form-text" *ngIf="inValid" >
+            <span *ngIf="personalDetails.controls['confirmPassword']?.errors?.['required']">Confirm must be Required</span>
+            <span *ngIf="personalDetails.controls['confirmPassword']?.errors?.['pattern']">
+              Password must be contains 8 character,one Upper Case, number and one special Character
+            </span>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-light px-5" (click)="submit()">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

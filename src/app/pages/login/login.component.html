@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <!-- <button class="btn btn-danger" [disabled]="buttonState">
+    Property Binding
+  </button> -->
+  <!-- <input type="text" placeholder="Enter any text" [(ngModel)]="name">
+  <div>
+    {{name}}
+  </div> -->
+  <div class="card">
+    <div class="card-body">
+      <form  #loginForm="ngForm">
+        <div (ngModelGroup)="(loginCd)" #loginCd="ngModelGroup">
+          <div class="mb-3">
+            <label for="userName" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              ngModel
+              name="username"
+              #username="ngModel"
+              id="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label
+              for="userName"
+              class="form-label"
+              ngModel
+              name="email"
+              #email="ngModel"
+              >Email address</label
+            >
+            <input type="email" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              ngModel
+              name="password"
+              #password="ngModel"
+            />
+          </div>
+          <button class="btn btn-primary">Submit</button>
+        </div>
+        F
+      </form>
+    </div>
+  </div>
+</div>
